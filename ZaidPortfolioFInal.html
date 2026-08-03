@@ -9,11 +9,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --white: #ffffff;
+            --bg-main: #0b1120;
+            --bg-card: #1e293b;
+            --bg-nav: rgba(11, 17, 32, 0.85);
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
 
         * {
@@ -25,20 +28,21 @@
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
         /* Navigation */
         nav {
-            background: var(--white);
+            background: var(--bg-nav);
             padding: 1rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,13 +58,13 @@
         .nav-links a {
             margin-left: 2rem;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-main);
             font-weight: 600;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--primary-hover);
         }
 
         /* Hero Section */
@@ -70,7 +74,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 10%;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #0b1120 0%, #0f172a 100%);
         }
 
         .hero-text {
@@ -81,6 +85,7 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
+            color: var(--text-main);
         }
 
         .hero-text h2 {
@@ -91,7 +96,7 @@
 
         .hero-text p {
             font-size: 1.1rem;
-            color: var(--gray);
+            color: var(--text-muted);
             margin-bottom: 2rem;
         }
 
@@ -99,7 +104,7 @@
             display: inline-block;
             padding: 0.8rem 2rem;
             background: var(--primary);
-            color: var(--white);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
@@ -107,7 +112,7 @@
         }
 
         .btn:hover {
-            background: #1d4ed8;
+            background: var(--primary-hover);
             transform: translateY(-2px);
         }
 
@@ -116,8 +121,8 @@
             height: 350px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 5px solid var(--white);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            border: 4px solid var(--border-color);
         }
 
         /* General Section Styling */
@@ -129,7 +134,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--dark);
+            color: var(--text-main);
         }
 
         .section-title::after {
@@ -147,10 +152,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            background: var(--white);
+            background: var(--bg-card);
             padding: 3rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .education-block {
@@ -159,8 +165,8 @@
             border-left: 3px solid var(--primary);
         }
 
-        .education-block h4 { margin-bottom: 0.2rem; }
-        .education-block p { color: var(--gray); font-size: 0.9rem; }
+        .education-block h4 { margin-bottom: 0.2rem; color: var(--text-main); }
+        .education-block p { color: var(--text-muted); font-size: 0.9rem; }
 
         /* Skills */
         .skills-container {
@@ -171,8 +177,9 @@
         }
 
         .skill-tag {
-            background: #e0e7ff;
-            color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-hover);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-weight: 600;
@@ -180,26 +187,35 @@
         }
 
         /* Experience Section */
+        #experience {
+            background: #0f172a;
+        }
+
         .timeline {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .timeline-item {
-            background: var(--white);
+            background: var(--bg-card);
             padding: 2rem;
             border-radius: 8px;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
             border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         
         .timeline-date {
-            color: var(--primary);
+            color: var(--primary-hover);
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
+        
+        .timeline-item h3 { color: var(--text-main); }
+        .timeline-item h4 { color: var(--text-muted); margin-bottom: 1rem; }
+        .timeline-item ul { color: var(--text-muted); }
 
         /* Projects Section */
         .projects-grid {
@@ -209,11 +225,12 @@
         }
 
         .project-card {
-            background: var(--white);
+            background: var(--bg-card);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, border-color 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -221,23 +238,25 @@
 
         .project-card:hover {
             transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         .project-card h3 {
             margin-bottom: 1rem;
-            color: var(--dark);
+            color: var(--text-main);
         }
 
         .project-card p {
-            color: var(--gray);
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
 
         .project-status {
             display: inline-block;
-            background: #fef3c7;
-            color: #d97706;
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.2);
             padding: 0.2rem 0.8rem;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -247,7 +266,7 @@
         }
 
         .project-tech {
-            color: var(--primary);
+            color: var(--primary-hover);
             font-weight: 600;
             font-size: 0.85rem;
             margin-bottom: 1.5rem;
@@ -264,27 +283,28 @@
             align-items: center;
             gap: 5px;
             font-size: 0.85rem;
-            color: var(--dark);
+            color: var(--text-main);
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             transition: all 0.3s;
-            background: #f8fafc;
+            background: transparent;
         }
 
         .github-btn:hover {
-            background: var(--dark);
-            color: var(--white);
-            border-color: var(--dark);
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
         }
 
         /* Footer / Contact */
         footer {
-            background: var(--dark);
-            color: var(--white);
+            background: #0b1120;
+            color: var(--text-main);
             text-align: center;
             padding: 4rem 10% 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .contact-info {
@@ -295,14 +315,14 @@
         }
 
         .contact-info a {
-            color: var(--white);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 1.2rem;
             transition: color 0.3s;
         }
 
         .contact-info a:hover {
-            color: var(--primary);
+            color: var(--primary-hover);
         }
 
         /* Responsive Design */
@@ -351,7 +371,7 @@
             <p>Driven 4th-year Computer Science and Engineering (AI & ML) student at Gharda Institute of Technology. Passionate about leveraging artificial intelligence, cloud infrastructure, and full-stack technologies to build scalable, impactful software solutions.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
-        <img src="profile.jpg" alt="Zaid Choughuley" class="hero-img" onerror="this.src='https://via.placeholder.com/350?text=Your+Photo'">
+        <img src="profile.jpg" alt="Zaid Choughuley" class="hero-img" onerror="this.src='https://via.placeholder.com/350/1e293b/ffffff?text=Zaid+C.'">
     </section>
 
     <!-- About Section -->
@@ -359,7 +379,7 @@
         <h2 class="section-title">About Me & Skills</h2>
         <div class="about-content">
             <div>
-                <h3 style="margin-bottom: 1.5rem;">Education</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">Education</h3>
                 
                 <div class="education-block">
                     <h4>B.E. in Computer Science (AI & ML)</h4>
@@ -381,7 +401,7 @@
             </div>
             
             <div>
-                <h3 style="margin-bottom: 1.5rem;">Technical Arsenal</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">Technical Arsenal</h3>
                 <div class="skills-container">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">JavaScript</span>
@@ -401,13 +421,13 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" style="background: var(--white);">
+    <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-date"><i class="fas fa-calendar-alt"></i> Jun 2026 - Present</div>
                 <h3>Cloud Engineering Intern</h3>
-                <h4 style="color: var(--gray); margin-bottom: 1rem;">FAZ SHIPPING INDIA PVT. LTD.</h4>
+                <h4>FAZ SHIPPING INDIA PVT. LTD.</h4>
                 <ul>
                     <li>Assisting in the management and optimization of cloud infrastructure to support internal shipping operations and streamline deployments.</li>
                     <li>Collaborating with the technical team to ensure highly secure, scalable, and reliable cloud-based data storage and retrieval systems.</li>
@@ -417,7 +437,7 @@
             <div class="timeline-item">
                 <div class="timeline-date"><i class="fas fa-calendar-alt"></i> Dec 2025 - Mar 2026</div>
                 <h3>Data Science Intern</h3>
-                <h4 style="color: var(--gray); margin-bottom: 1rem;">FAZ SHIPPING INDIA PVT. LTD.</h4>
+                <h4>FAZ SHIPPING INDIA PVT. LTD.</h4>
                 <ul>
                     <li>Processed and analyzed extensive shipping data sets to dramatically streamline internal reporting workflows and key performance metrics.</li>
                     <li>Utilized data science methodologies to optimize, automate, and enhance the accuracy of operational tracking systems.</li>
@@ -512,14 +532,14 @@
     <!-- Footer / Contact Section -->
     <section id="contact" style="padding-bottom: 0;">
         <footer>
-            <h2 style="margin-bottom: 2rem;">Let's Connect</h2>
+            <h2 style="margin-bottom: 2rem; color: var(--text-main);">Let's Connect</h2>
             <div class="contact-info">
                 <a href="mailto:choughuleyzaid33@gmail.com"><i class="fas fa-envelope"></i> choughuleyzaid33@gmail.com</a>
                 <a href="tel:+918767353773"><i class="fas fa-phone"></i> +91 8767353773</a>
                 <a href="https://linkedin.com/in/zaid-choughuley" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/choughuleyzaid33-cloud" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
-            <p style="color: #94a3b8; font-size: 0.9rem;">Based in Chiplun, Maharashtra, India. <br> &copy; 2026 Zaid Choughuley. All Rights Reserved.</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Based in Chiplun, Maharashtra, India. <br> &copy; 2026 Zaid Choughuley. All Rights Reserved.</p>
         </footer>
     </section>
 
